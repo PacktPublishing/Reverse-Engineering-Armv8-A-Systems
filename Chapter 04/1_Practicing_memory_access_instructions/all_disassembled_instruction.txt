@@ -1,0 +1,37 @@
+// at https://godbolt.org/ with armv8-a clang 17.0.1 option
+init_task_state:
+        sub     sp, sp, #32
+        stp     x29, x30, [sp, #16]
+        add     x29, sp, #16
+        mov     x0, #24
+        bl      malloc
+        str     x0, [sp, #8]
+        ldr     x9, [sp, #8]
+        mov     w8, #1
+        str     w8, [x9, #4]
+        ldr     x8, [sp, #8]
+        ldr     w1, [x8, #4]
+        adrp    x0, .L.str
+        add     x0, x0, :lo12:.L.str
+        bl      printf
+        ldr     x0, [sp, #8]
+        bl      free
+        ldp     x29, x30, [sp, #16]
+        add     sp, sp, #32
+        ret
+
+main:
+        sub     sp, sp, #32
+        stp     x29, x30, [sp, #16]
+        add     x29, sp, #16
+        mov     w8, wzr
+        str     w8, [sp, #8]
+        stur    wzr, [x29, #-4]
+        bl      init_task_state
+        ldr     w0, [sp, #8]
+        ldp     x29, x30, [sp, #16]
+        add     sp, sp, #32
+        ret
+
+.L.str:
+        .asciz  "state:%d \n"

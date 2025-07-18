@@ -1,0 +1,25 @@
+0000000000000854 <loop_func>:
+ 854:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 858:	910003fd 	mov	x29, sp
+ 85c:	b9001fe0 	str	w0, [sp, #28]
+ 860:	b9002fff 	str	wzr, [sp, #44]
+ 864:	b9002bff 	str	wzr, [sp, #40]
+ 868:	1400000b 	b	894 <loop_func+0x40>
+ 86c:	b9402fe1 	ldr	w1, [sp, #44]
+ 870:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 874:	91286000 	add	x0, x0, #0xa18
+ 878:	97ffffa6 	bl	710 <printf@plt>
+ 87c:	b9402fe0 	ldr	w0, [sp, #44]
+ 880:	11000400 	add	w0, w0, #0x1
+ 884:	b9002fe0 	str	w0, [sp, #44]
+ 888:	b9402be0 	ldr	w0, [sp, #40]
+ 88c:	11000400 	add	w0, w0, #0x1
+ 890:	b9002be0 	str	w0, [sp, #40]
+ 894:	b9402be0 	ldr	w0, [sp, #40]
+ 898:	71018c1f 	cmp	w0, #0x63
+ 89c:	54fffe8d 	b.le	86c <loop_func+0x18>
+ 8a0:	b9401fe1 	ldr	w1, [sp, #28]
+ 8a4:	b9402fe0 	ldr	w0, [sp, #44]
+ 8a8:	0b000020 	add	w0, w1, w0
+ 8ac:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 8b0:	d65f03c0 	ret

@@ -1,0 +1,27 @@
+0000000000000754 <add_func>:
+ 754:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 758:	910003fd 	mov	x29, sp
+ 75c:	b9001fe0 	str	w0, [sp, #28]
+ 760:	b9001be1 	str	w1, [sp, #24]
+ 764:	b9401fe1 	ldr	w1, [sp, #28]
+ 768:	b9401be0 	ldr	w0, [sp, #24]
+ 76c:	0b000020 	add	w0, w1, w0
+ 770:	b9002fe0 	str	w0, [sp, #44]
+ 774:	b9402fe1 	ldr	w1, [sp, #44]
+ 778:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 77c:	911f4000 	add	x0, x0, #0x7d0
+ 780:	97ffffac 	bl	630 <printf@plt>
+ 784:	b9402fe0 	ldr	w0, [sp, #44]
+ 788:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 78c:	d65f03c0 	ret
+
+0000000000000790 <main>:
+ 790:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 794:	910003fd 	mov	x29, sp
+ 798:	52800061 	mov	w1, #0x3                   	// #3
+ 79c:	52800020 	mov	w0, #0x1                   	// #1
+ 7a0:	97ffffed 	bl	754 <add_func>
+ 7a4:	b9001fe0 	str	w0, [sp, #28]
+ 7a8:	52800000 	mov	w0, #0x0                   	// #0
+ 7ac:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 7b0:	d65f03c0 	ret

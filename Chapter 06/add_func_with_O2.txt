@@ -1,0 +1,22 @@
+00000000000007a0 <add_func>:
+ 7a0:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 7a4:	910003fd 	mov	x29, sp
+ 7a8:	f9000bf3 	str	x19, [sp, #16]
+ 7ac:	0b010013 	add	w19, w0, w1
+ 7b0:	2a1303e1 	mov	w1, w19
+ 7b4:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 7b8:	911fc000 	add	x0, x0, #0x7f0
+ 7bc:	97ffff9d 	bl	630 <printf@plt>
+ 7c0:	2a1303e0 	mov	w0, w19
+ 7c4:	f9400bf3 	ldr	x19, [sp, #16]
+ 7c8:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 7cc:	d65f03c0 	ret
+
+Disassembly of section .fini:
+
+00000000000007d0 <_fini>:
+ 7d0:	d503201f 	nop
+ 7d4:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 7d8:	910003fd 	mov	x29, sp
+ 7dc:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 7e0:	d65f03c0 	ret

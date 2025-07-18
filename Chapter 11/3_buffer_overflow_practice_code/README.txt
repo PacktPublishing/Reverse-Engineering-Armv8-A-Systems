@@ -1,0 +1,1 @@
+This practice code can be found in "Memory corruption: buffer overflow case study" section.

@@ -1,0 +1,21 @@
+Disassembly of section .text:
+
+0000000000000000 <__libc_read>:
+   0:   a9bd7bfd        stp     x29, x30, [sp, #-48]!
+   4:   90000003        adrp    x3, 0 <_GLOBAL_OFFSET_TABLE_>
+   8:   910003fd        mov     x29, sp
+   c:   f9400063        ldr     x3, [x3]
+  10:   a90153f3        stp     x19, x20, [sp, #16]
+  14:   93407c13        sxtw    x19, w0
+  18:   39400060        ldrb    w0, [x3]
+  1c:   34000160        cbz     w0, 44 <__libc_read+0x44>
+  20:   aa1303e0        mov     x0, x19
+  24:   d28007e8        mov     x8, #0x3f                       // #63
+  28:   d4000001        svc     #0x0
+  2c:   aa0003f3        mov     x19, x0
+  30:   b140041f        cmn     x0, #0x1, lsl #12
+  34:   54000328        b.hi    98 <__libc_read+0x98>  // b.pmore
+  38:   aa1303e0        mov     x0, x19
+  3c:   a94153f3        ldp     x19, x20, [sp, #16]
+  40:   a8c37bfd        ldp     x29, x30, [sp], #48
+  44:   d65f03c0        ret

@@ -1,0 +1,66 @@
+0000000000000754 <logical_operation>:
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+
+void logical_operation(void) 
+{
+ 754:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 758:	910003fd 	mov	x29, sp
+	unsigned int x = 0x23, y = 0x123, z = 0x103;
+ 75c:	52800460 	mov	w0, #0x23                  	// #35
+ 760:	b9002fe0 	str	w0, [sp, #44]
+ 764:	52802460 	mov	w0, #0x123                 	// #291
+ 768:	b9002be0 	str	w0, [sp, #40]
+ 76c:	52802060 	mov	w0, #0x103                 	// #259
+ 770:	b90027e0 	str	w0, [sp, #36]
+	unsigned int a = 0xf, b = 0xf0; 
+ 774:	528001e0 	mov	w0, #0xf                   	// #15
+ 778:	b90023e0 	str	w0, [sp, #32]
+ 77c:	52801e00 	mov	w0, #0xf0                  	// #240
+ 780:	b9001fe0 	str	w0, [sp, #28]
+	unsigned int result1, result2, result3;
+
+	result1 = x & y;
+ 784:	b9402fe1 	ldr	w1, [sp, #44]
+ 788:	b9402be0 	ldr	w0, [sp, #40]
+ 78c:	0a000020 	and	w0, w1, w0
+ 790:	b9001be0 	str	w0, [sp, #24]
+	result2 = x | z;
+ 794:	b9402fe1 	ldr	w1, [sp, #44]
+ 798:	b94027e0 	ldr	w0, [sp, #36]
+ 79c:	2a000020 	orr	w0, w1, w0
+ 7a0:	b90017e0 	str	w0, [sp, #20]
+	result3 = a ^ b;
+ 7a4:	b94023e1 	ldr	w1, [sp, #32]
+ 7a8:	b9401fe0 	ldr	w0, [sp, #28]
+ 7ac:	4a000020 	eor	w0, w1, w0
+ 7b0:	b90013e0 	str	w0, [sp, #16]
+
+	printf("result1: 0x%lx, result2: 0x%lx, result3: 0x%lx \n",
+ 7b4:	b94013e3 	ldr	w3, [sp, #16]
+ 7b8:	b94017e2 	ldr	w2, [sp, #20]
+ 7bc:	b9401be1 	ldr	w1, [sp, #24]
+ 7c0:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 7c4:	91204000 	add	x0, x0, #0x810
+ 7c8:	97ffff9a 	bl	630 <printf@plt>
+				result1, result2, result3);
+		
+}
+ 7cc:	d503201f 	nop
+ 7d0:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 7d4:	d65f03c0 	ret
+
+00000000000007d8 <main>:
+
+int main() 
+{
+ 7d8:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 7dc:	910003fd 	mov	x29, sp
+	logical_operation();	
+ 7e0:	97ffffdd 	bl	754 <logical_operation>
+	return 0;	
+ 7e4:	52800000 	mov	w0, #0x0                   	// #0
+}
+ 7e8:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 7ec:	d65f03c0 	ret

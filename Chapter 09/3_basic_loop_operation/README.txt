@@ -1,0 +1,1 @@
+The file trace.so is used throughout Chapter 2.

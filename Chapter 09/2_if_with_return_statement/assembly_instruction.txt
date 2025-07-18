@@ -1,0 +1,34 @@
+00000000000008cc <bound_condition>:
+ 8cc:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 8d0:	910003fd 	mov	x29, sp
+ 8d4:	b9001fe0 	str	w0, [sp, #28]
+ 8d8:	b9401fe0 	ldr	w0, [sp, #28]
+ 8dc:	b9002fe0 	str	w0, [sp, #44]
+ 8e0:	b9002bff 	str	wzr, [sp, #40]
+ 8e4:	b9401fe0 	ldr	w0, [sp, #28]
+ 8e8:	97ffffdb 	bl	854 <loop_func>
+ 8ec:	b9002be0 	str	w0, [sp, #40]
+ 8f0:	b9402be0 	ldr	w0, [sp, #40]
+ 8f4:	7100041f 	cmp	w0, #0x1
+ 8f8:	54000260 	b.eq	944 <bound_condition+0x78>  // b.none
+ 8fc:	b9402fe0 	ldr	w0, [sp, #44]
+ 900:	7104001f 	cmp	w0, #0x100
+ 904:	540000ad 	b.le	918 <bound_condition+0x4c>
+ 908:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 90c:	91292000 	add	x0, x0, #0xa48
+ 910:	97ffff7c 	bl	700 <puts@plt>
+ 914:	1400000d 	b	948 <bound_condition+0x7c>
+ 918:	b9402fe0 	ldr	w0, [sp, #44]
+ 91c:	7107fc1f 	cmp	w0, #0x1ff
+ 920:	540000ac 	b.gt	934 <bound_condition+0x68>
+ 924:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 928:	91296000 	add	x0, x0, #0xa58
+ 92c:	97ffff75 	bl	700 <puts@plt>
+ 930:	14000006 	b	948 <bound_condition+0x7c>
+ 934:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 938:	9129c000 	add	x0, x0, #0xa70
+ 93c:	97ffff71 	bl	700 <puts@plt>
+ 940:	14000002 	b	948 <bound_condition+0x7c>
+ 944:	d503201f 	nop
+ 948:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 94c:	d65f03c0 	ret

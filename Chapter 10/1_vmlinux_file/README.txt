@@ -1,0 +1,1 @@
+This file vmlinux.xz is used in "Structure of kernel binaries > Exploring vmlinux" section.

@@ -1,0 +1,287 @@
+
+perform_instruction:     file format elf64-littleaarch64
+
+
+Disassembly of section .init:
+
+00000000000005b8 <_init>:
+ 5b8:	d503201f 	nop
+ 5bc:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 5c0:	910003fd 	mov	x29, sp
+ 5c4:	9400002c 	bl	674 <call_weak_fn>
+ 5c8:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 5cc:	d65f03c0 	ret
+
+Disassembly of section .plt:
+
+00000000000005d0 <.plt>:
+ 5d0:	a9bf7bf0 	stp	x16, x30, [sp, #-16]!
+ 5d4:	f00000f0 	adrp	x16, 1f000 <__FRAME_END__+0x1e5c0>
+ 5d8:	f947fe11 	ldr	x17, [x16, #4088]
+ 5dc:	913fe210 	add	x16, x16, #0xff8
+ 5e0:	d61f0220 	br	x17
+ 5e4:	d503201f 	nop
+ 5e8:	d503201f 	nop
+ 5ec:	d503201f 	nop
+
+00000000000005f0 <__libc_start_main@plt>:
+ 5f0:	90000110 	adrp	x16, 20000 <__libc_start_main@GLIBC_2.34>
+ 5f4:	f9400211 	ldr	x17, [x16]
+ 5f8:	91000210 	add	x16, x16, #0x0
+ 5fc:	d61f0220 	br	x17
+
+0000000000000600 <__cxa_finalize@plt>:
+ 600:	90000110 	adrp	x16, 20000 <__libc_start_main@GLIBC_2.34>
+ 604:	f9400611 	ldr	x17, [x16, #8]
+ 608:	91002210 	add	x16, x16, #0x8
+ 60c:	d61f0220 	br	x17
+
+0000000000000610 <__gmon_start__@plt>:
+ 610:	90000110 	adrp	x16, 20000 <__libc_start_main@GLIBC_2.34>
+ 614:	f9400a11 	ldr	x17, [x16, #16]
+ 618:	91004210 	add	x16, x16, #0x10
+ 61c:	d61f0220 	br	x17
+
+0000000000000620 <abort@plt>:
+ 620:	90000110 	adrp	x16, 20000 <__libc_start_main@GLIBC_2.34>
+ 624:	f9400e11 	ldr	x17, [x16, #24]
+ 628:	91006210 	add	x16, x16, #0x18
+ 62c:	d61f0220 	br	x17
+
+0000000000000630 <printf@plt>:
+ 630:	90000110 	adrp	x16, 20000 <__libc_start_main@GLIBC_2.34>
+ 634:	f9401211 	ldr	x17, [x16, #32]
+ 638:	91008210 	add	x16, x16, #0x20
+ 63c:	d61f0220 	br	x17
+
+Disassembly of section .text:
+
+0000000000000640 <_start>:
+ 640:	d503201f 	nop
+ 644:	d280001d 	mov	x29, #0x0                   	// #0
+ 648:	d280001e 	mov	x30, #0x0                   	// #0
+ 64c:	aa0003e5 	mov	x5, x0
+ 650:	f94003e1 	ldr	x1, [sp]
+ 654:	910023e2 	add	x2, sp, #0x8
+ 658:	910003e6 	mov	x6, sp
+ 65c:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e5c0>
+ 660:	f947ec00 	ldr	x0, [x0, #4056]
+ 664:	d2800003 	mov	x3, #0x0                   	// #0
+ 668:	d2800004 	mov	x4, #0x0                   	// #0
+ 66c:	97ffffe1 	bl	5f0 <__libc_start_main@plt>
+ 670:	97ffffec 	bl	620 <abort@plt>
+
+0000000000000674 <call_weak_fn>:
+ 674:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e5c0>
+ 678:	f947e800 	ldr	x0, [x0, #4048]
+ 67c:	b4000040 	cbz	x0, 684 <call_weak_fn+0x10>
+ 680:	17ffffe4 	b	610 <__gmon_start__@plt>
+ 684:	d65f03c0 	ret
+ 688:	d503201f 	nop
+ 68c:	d503201f 	nop
+
+0000000000000690 <deregister_tm_clones>:
+ 690:	90000100 	adrp	x0, 20000 <__libc_start_main@GLIBC_2.34>
+ 694:	9100e000 	add	x0, x0, #0x38
+ 698:	90000101 	adrp	x1, 20000 <__libc_start_main@GLIBC_2.34>
+ 69c:	9100e021 	add	x1, x1, #0x38
+ 6a0:	eb00003f 	cmp	x1, x0
+ 6a4:	540000c0 	b.eq	6bc <deregister_tm_clones+0x2c>  // b.none
+ 6a8:	f00000e1 	adrp	x1, 1f000 <__FRAME_END__+0x1e5c0>
+ 6ac:	f947e021 	ldr	x1, [x1, #4032]
+ 6b0:	b4000061 	cbz	x1, 6bc <deregister_tm_clones+0x2c>
+ 6b4:	aa0103f0 	mov	x16, x1
+ 6b8:	d61f0200 	br	x16
+ 6bc:	d65f03c0 	ret
+
+00000000000006c0 <register_tm_clones>:
+ 6c0:	90000100 	adrp	x0, 20000 <__libc_start_main@GLIBC_2.34>
+ 6c4:	9100e000 	add	x0, x0, #0x38
+ 6c8:	90000101 	adrp	x1, 20000 <__libc_start_main@GLIBC_2.34>
+ 6cc:	9100e021 	add	x1, x1, #0x38
+ 6d0:	cb000021 	sub	x1, x1, x0
+ 6d4:	d37ffc22 	lsr	x2, x1, #63
+ 6d8:	8b810c41 	add	x1, x2, x1, asr #3
+ 6dc:	9341fc21 	asr	x1, x1, #1
+ 6e0:	b40000c1 	cbz	x1, 6f8 <register_tm_clones+0x38>
+ 6e4:	f00000e2 	adrp	x2, 1f000 <__FRAME_END__+0x1e5c0>
+ 6e8:	f947f042 	ldr	x2, [x2, #4064]
+ 6ec:	b4000062 	cbz	x2, 6f8 <register_tm_clones+0x38>
+ 6f0:	aa0203f0 	mov	x16, x2
+ 6f4:	d61f0200 	br	x16
+ 6f8:	d65f03c0 	ret
+ 6fc:	d503201f 	nop
+
+0000000000000700 <__do_global_dtors_aux>:
+ 700:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 704:	910003fd 	mov	x29, sp
+ 708:	f9000bf3 	str	x19, [sp, #16]
+ 70c:	90000113 	adrp	x19, 20000 <__libc_start_main@GLIBC_2.34>
+ 710:	3940e260 	ldrb	w0, [x19, #56]
+ 714:	35000140 	cbnz	w0, 73c <__do_global_dtors_aux+0x3c>
+ 718:	f00000e0 	adrp	x0, 1f000 <__FRAME_END__+0x1e5c0>
+ 71c:	f947e400 	ldr	x0, [x0, #4040]
+ 720:	b4000080 	cbz	x0, 730 <__do_global_dtors_aux+0x30>
+ 724:	90000100 	adrp	x0, 20000 <__libc_start_main@GLIBC_2.34>
+ 728:	f9401800 	ldr	x0, [x0, #48]
+ 72c:	97ffffb5 	bl	600 <__cxa_finalize@plt>
+ 730:	97ffffd8 	bl	690 <deregister_tm_clones>
+ 734:	52800020 	mov	w0, #0x1                   	// #1
+ 738:	3900e260 	strb	w0, [x19, #56]
+ 73c:	f9400bf3 	ldr	x19, [sp, #16]
+ 740:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 744:	d65f03c0 	ret
+ 748:	d503201f 	nop
+ 74c:	d503201f 	nop
+
+0000000000000750 <frame_dummy>:
+ 750:	17ffffdc 	b	6c0 <register_tm_clones>
+
+0000000000000754 <check_curr_state>:
+#define TASK_INTERRUPTIBLE    0x0001
+#define TASK_UNINTERRUPTIBLE  0x0002
+#define __TASK_STOPPED	      0x0004
+
+int check_curr_state(unsigned int state)
+{
+ 754:	d10083ff 	sub	sp, sp, #0x20
+ 758:	b9000fe0 	str	w0, [sp, #12]
+	int ret = -1;
+ 75c:	12800000 	mov	w0, #0xffffffff            	// #-1
+ 760:	b9001fe0 	str	w0, [sp, #28]
+
+	if (!(state & __TASK_STOPPED))
+ 764:	b9400fe0 	ldr	w0, [sp, #12]
+ 768:	121e0000 	and	w0, w0, #0x4
+ 76c:	7100001f 	cmp	w0, #0x0
+ 770:	54000061 	b.ne	77c <check_curr_state+0x28>  // b.any
+		ret = 1;
+ 774:	52800020 	mov	w0, #0x1                   	// #1
+ 778:	b9001fe0 	str	w0, [sp, #28]
+
+	return ret;
+ 77c:	b9401fe0 	ldr	w0, [sp, #28]
+}
+ 780:	910083ff 	add	sp, sp, #0x20
+ 784:	d65f03c0 	ret
+
+0000000000000788 <compare_operation>:
+
+void compare_operation(void)
+{
+ 788:	a9be7bfd 	stp	x29, x30, [sp, #-32]!
+ 78c:	910003fd 	mov	x29, sp
+	unsigned int state = TASK_UNINTERRUPTIBLE | TASK_INTERRUPTIBLE;
+ 790:	52800060 	mov	w0, #0x3                   	// #3
+ 794:	b9001fe0 	str	w0, [sp, #28]
+	unsigned int count = 1;
+ 798:	52800020 	mov	w0, #0x1                   	// #1
+ 79c:	b9001be0 	str	w0, [sp, #24]
+
+	if (state & TASK_UNINTERRUPTIBLE) {
+ 7a0:	b9401fe0 	ldr	w0, [sp, #28]
+ 7a4:	121f0000 	and	w0, w0, #0x2
+ 7a8:	7100001f 	cmp	w0, #0x0
+ 7ac:	54000100 	b.eq	7cc <compare_operation+0x44>  // b.none
+		count++;
+ 7b0:	b9401be0 	ldr	w0, [sp, #24]
+ 7b4:	11000400 	add	w0, w0, #0x1
+ 7b8:	b9001be0 	str	w0, [sp, #24]
+		state &= ~TASK_UNINTERRUPTIBLE;
+ 7bc:	b9401fe0 	ldr	w0, [sp, #28]
+ 7c0:	121e7800 	and	w0, w0, #0xfffffffd
+ 7c4:	b9001fe0 	str	w0, [sp, #28]
+ 7c8:	14000007 	b	7e4 <compare_operation+0x5c>
+	}
+	else {
+		count--;
+ 7cc:	b9401be0 	ldr	w0, [sp, #24]
+ 7d0:	51000400 	sub	w0, w0, #0x1
+ 7d4:	b9001be0 	str	w0, [sp, #24]
+		state |= __TASK_STOPPED;
+ 7d8:	b9401fe0 	ldr	w0, [sp, #28]
+ 7dc:	321e0000 	orr	w0, w0, #0x4
+ 7e0:	b9001fe0 	str	w0, [sp, #28]
+	}
+	check_curr_state(state);
+ 7e4:	b9401fe0 	ldr	w0, [sp, #28]
+ 7e8:	97ffffdb 	bl	754 <check_curr_state>
+}
+ 7ec:	d503201f 	nop
+ 7f0:	a8c27bfd 	ldp	x29, x30, [sp], #32
+ 7f4:	d65f03c0 	ret
+
+00000000000007f8 <logical_operation>:
+	
+void logical_operation(void) 
+{
+ 7f8:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 7fc:	910003fd 	mov	x29, sp
+	unsigned int x = 0x23, y = 0x123, z = 0x103;
+ 800:	52800460 	mov	w0, #0x23                  	// #35
+ 804:	b9002fe0 	str	w0, [sp, #44]
+ 808:	52802460 	mov	w0, #0x123                 	// #291
+ 80c:	b9002be0 	str	w0, [sp, #40]
+ 810:	52802060 	mov	w0, #0x103                 	// #259
+ 814:	b90027e0 	str	w0, [sp, #36]
+	unsigned int a = 0xf, b = 0xf0; 
+ 818:	528001e0 	mov	w0, #0xf                   	// #15
+ 81c:	b90023e0 	str	w0, [sp, #32]
+ 820:	52801e00 	mov	w0, #0xf0                  	// #240
+ 824:	b9001fe0 	str	w0, [sp, #28]
+	unsigned int result1, result2, result3;
+
+	result1 = x & y;
+ 828:	b9402fe1 	ldr	w1, [sp, #44]
+ 82c:	b9402be0 	ldr	w0, [sp, #40]
+ 830:	0a000020 	and	w0, w1, w0
+ 834:	b9001be0 	str	w0, [sp, #24]
+	result2 = x | z;
+ 838:	b9402fe1 	ldr	w1, [sp, #44]
+ 83c:	b94027e0 	ldr	w0, [sp, #36]
+ 840:	2a000020 	orr	w0, w1, w0
+ 844:	b90017e0 	str	w0, [sp, #20]
+	result3 = a ^ b;
+ 848:	b94023e1 	ldr	w1, [sp, #32]
+ 84c:	b9401fe0 	ldr	w0, [sp, #28]
+ 850:	4a000020 	eor	w0, w1, w0
+ 854:	b90013e0 	str	w0, [sp, #16]
+
+	printf("result1: 0x%lx, result2: 0x%lx, result3: 0x%lx \n",
+ 858:	b94013e3 	ldr	w3, [sp, #16]
+ 85c:	b94017e2 	ldr	w2, [sp, #20]
+ 860:	b9401be1 	ldr	w1, [sp, #24]
+ 864:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 868:	9122e000 	add	x0, x0, #0x8b8
+ 86c:	97ffff71 	bl	630 <printf@plt>
+				result1, result2, result3);
+		
+}
+ 870:	d503201f 	nop
+ 874:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 878:	d65f03c0 	ret
+
+000000000000087c <main>:
+
+int main() 
+{
+ 87c:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 880:	910003fd 	mov	x29, sp
+	compare_operation();
+ 884:	97ffffc1 	bl	788 <compare_operation>
+	logical_operation();	
+ 888:	97ffffdc 	bl	7f8 <logical_operation>
+	return 0;	
+ 88c:	52800000 	mov	w0, #0x0                   	// #0
+}
+ 890:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 894:	d65f03c0 	ret
+
+Disassembly of section .fini:
+
+0000000000000898 <_fini>:
+ 898:	d503201f 	nop
+ 89c:	a9bf7bfd 	stp	x29, x30, [sp, #-16]!
+ 8a0:	910003fd 	mov	x29, sp
+ 8a4:	a8c17bfd 	ldp	x29, x30, [sp], #16
+ 8a8:	d65f03c0 	ret

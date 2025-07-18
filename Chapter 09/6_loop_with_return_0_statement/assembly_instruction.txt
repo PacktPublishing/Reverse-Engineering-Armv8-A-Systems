@@ -1,0 +1,31 @@
+0000000000000854 <loop_func>:
+ 854:	a9bd7bfd 	stp	x29, x30, [sp, #-48]!
+ 858:	910003fd 	mov	x29, sp
+ 85c:	b9001fe0 	str	w0, [sp, #28]
+ 860:	b9002fff 	str	wzr, [sp, #44]
+ 864:	b9002bff 	str	wzr, [sp, #40]
+ 868:	14000011 	b	8ac <loop_func+0x58>
+ 86c:	b9402be1 	ldr	w1, [sp, #40]
+ 870:	b9401fe0 	ldr	w0, [sp, #28]
+ 874:	6b00003f 	cmp	w1, w0
+ 878:	54000061 	b.ne	884 <loop_func+0x30>  // b.any
+ 87c:	52800000 	mov	w0, #0x0                   	// #0
+ 880:	14000011 	b	8c4 <loop_func+0x70>
+ 884:	b9402fe1 	ldr	w1, [sp, #44]
+ 888:	90000000 	adrp	x0, 0 <__abi_tag-0x278>
+ 88c:	9128c000 	add	x0, x0, #0xa30
+ 890:	97ffffa0 	bl	710 <printf@plt>
+ 894:	b9402fe0 	ldr	w0, [sp, #44]
+ 898:	11000400 	add	w0, w0, #0x1
+ 89c:	b9002fe0 	str	w0, [sp, #44]
+ 8a0:	b9402be0 	ldr	w0, [sp, #40]
+ 8a4:	11000400 	add	w0, w0, #0x1
+ 8a8:	b9002be0 	str	w0, [sp, #40]
+ 8ac:	b9402be0 	ldr	w0, [sp, #40]
+ 8b0:	71018c1f 	cmp	w0, #0x63
+ 8b4:	54fffdcd 	b.le	86c <loop_func+0x18>
+ 8b8:	b9401fe1 	ldr	w1, [sp, #28]
+ 8bc:	b9402fe0 	ldr	w0, [sp, #44]
+ 8c0:	0b000020 	add	w0, w1, w0
+ 8c4:	a8c37bfd 	ldp	x29, x30, [sp], #48
+ 8c8:	d65f03c0 	ret

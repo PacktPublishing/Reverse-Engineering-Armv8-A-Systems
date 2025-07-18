@@ -1,0 +1,1 @@
+aarch64_hello.c is used in "QEMU > User-mode emulation" section
